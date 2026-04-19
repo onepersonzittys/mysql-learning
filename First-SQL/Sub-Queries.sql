@@ -4,7 +4,7 @@
 =================================================
 */
 
-USE base 5;
+USE base5;
 
 CREATE TABLE IF NOT EXISTS table_a (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -32,7 +32,7 @@ INSERT INTO table_b (name_b, value_b, fk_id) VALUES
 
 SELECT name_b, value_b 
 FROM table_b 
-WHERE value_b > (SELECT AVG(value_b) FROM table_b /* calculates the average */); -- nested subquery, the result of the average of table 2 is used to calculate if the value is above the average
+WHERE value_b > (SELECT AVG(value_b) FROM table_b /* subquery computes AVG(value_b) across all rows */ ); -- nested subquery, the result of the average of table 2 is used to calculate if the value is above the average
 -- creates a result that shows items if their value is above the average
 
 SELECT name_a 
